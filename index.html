@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard Labs | Tactical Security UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation Elements -->
+        <aside class="sidebar">
+            <div class="panel-brand">CYBER<span>GUARD</span></div>
+            <div class="system-status-indicator">
+                <div class="pulse-dot"></div>
+                <span>NODE MATRIX: ONLINE</span>
+            </div>
+            <nav class="side-menu">
+                <a href="#" class="active">🛡️ Live Threat Matrix</a>
+                <a href="#">🔍 Forensic Case Vault</a>
+                <a href="#">💾 Immutable Log Ledger</a>
+            </nav>
+            <div class="sidebar-footer">
+                <small>UI Security Clearance: Level 4</small>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Viewport -->
+        <main class="viewport">
+            <header class="view-header">
+                <h1>Tactical Front-End Architecture & Operational Metrics</h1>
+                <p>This interactive component showcases secure client-side engineering, real-time visual state manipulation, and advanced semantic grid layouts.</p>
+            </header>
+
+            <!-- Mind-Blowing Interactive Widgets Area -->
+            <div class="dashboard-grid">
+                <!-- Interactive Component 1: Real-Time Stream Simulator -->
+                <div class="widget-card telemetry-card">
+                    <div class="widget-header">
+                        <h3>Simulated Network Threat Triage Stream</h3>
+                        <span class="badge-accent">LIVE REAL-TIME INGESTION</span>
+                    </div>
+                    <div class="log-stream-container" id="logStream">
+                        <!-- JavaScript will dynamically inject real-time code execution blocks here -->
+                        <div class="stream-line initialization">[SYSTEM INITIALIZATION]: Mapping local layout structure...</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Component 2: Interactive Incident Forensic Log -->
+                <div class="widget-card tool-card">
+                    <h3>Chain of Custody Event Generator</h3>
+                    <p>Interact with the localized cryptographic hash generator below to simulate immutable case forensic ingestion.</p>
+                    
+                    <div class="interactive-form-mock">
+                        <input type="text" id="evidenceInput" placeholder="Enter target asset name (e.g., system_dump.raw)...">
+                        <button onclick="generateEvidenceLog()" class="btn-action">Log Asset Integrity</button>
+                    </div>
+
+                    <div class="table-scroller">
+                        <table id="evidenceTable">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Asset Source</th>
+                                    <th>SHA-256 Checksum Signature</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>19:38:02</td>
+                                    <td>mem_dump_alpha.bin</td>
+                                    <td><code class="hash-string">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Embedded High-Fidelity Logic Script -->
+    <script>
+        // Real-Time Log Stream Simulation Engine
+        const attackVectors = [
+            "Unauthorized brute-force vector intercepted on Port 443",
+            "XSS injection string sanitized within front-end layout structural wrapper",
+            "Cross-origin resource block applied to untrusted external payload",
+            "Cryptographic file verification successfully completed on node cluster",
+            "Zero-trust credential authorization routine initialized dynamically"
+        ];
+
+        const logStream = document.getElementById('logStream');
+
+        function simulateThreatLogs() {
+            setInterval(() => {
+                const randomVector = attackVectors[Math.floor(Math.random() * attackVectors.length)];
+                const timestamp = new Date().toLocaleTimeString();
+                
+                const logLine = document.createElement('div');
+                logLine.className = 'stream-line dynamic-alert';
+                logLine.innerHTML = `<span class="stream-time">[${timestamp}]</span> <span class="stream-text">${randomVector}</span>`;
+                
+                logStream.appendChild(logLine);
+                logStream.scrollTop = logStream.scrollHeight;
+
+                // Keep log stream from crashing browser memory by limiting lines
+                if (logStream.children.length > 15) {
+                    logStream.removeChild(logStream.firstChild);
+                }
+            }, 3000);
+        }
+
+        // Live Cryptographic Hash Mock Generator for Chain of Custody
+        function generateEvidenceLog() {
+            const assetName = document.getElementById('evidenceInput').value.trim();
+            if (!assetName) return alert("Please specify an asset resource identifier.");
+
+            const timestamp = new Date().toLocaleTimeString();
+            // Generates a mock high-fidelity pseudo-random SHA256 string for pure visual effect
+            const characters = 'abcdef0123456789';
+            let pseudoHash = '';
+            for (let i = 0; i < 64; i++) {
+                pseudoHash += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+
+            const tableBody = document.getElementById('evidenceTable').getElementsByTagName('tbody')[0];
+            const newRow = tableBody.insertRow(0); // Insert at top of table
+
+            newRow.innerHTML = `
+                <td>${timestamp}</td>
+                <td style="color: #00f0ff; font-weight: 600;">${assetName}</td>
+                <td><code class="hash-string">${pseudoHash}</code></td>
+            `;
+
+            document.getElementById('evidenceInput').value = ''; // Reset input
+        }
+
+        // Initialize script logic on viewport paint
+        window.onload = simulateThreatLogs;
+    </script>
+</body>
+</html>
