@@ -3,141 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberGuard Labs | Tactical Security UI</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="dashboard-wrapper">
-        <!-- Sidebar Navigation Elements -->
-        <aside class="sidebar">
-            <div class="panel-brand">CYBER<span>GUARD</span></div>
-            <div class="system-status-indicator">
-                <div class="pulse-dot"></div>
-                <span>NODE MATRIX: ONLINE</span>
-            </div>
-            <nav class="side-menu">
-                <a href="#" class="active">🛡️ Live Threat Matrix</a>
-                <a href="#">🔍 Forensic Case Vault</a>
-                <a href="#">💾 Immutable Log Ledger</a>
-            </nav>
-            <div class="sidebar-footer">
-                <small>UI Security Clearance: Level 4</small>
-            </div>
-        </aside>
-
-        <!-- Main Dashboard Viewport -->
-        <main class="viewport">
-            <header class="view-header">
-                <h1>Tactical Front-End Architecture & Operational Metrics</h1>
-                <p>This interactive component showcases secure client-side engineering, real-time visual state manipulation, and advanced semantic grid layouts.</p>
-            </header>
-
-            <!-- Mind-Blowing Interactive Widgets Area -->
-            <div class="dashboard-grid">
-                <!-- Interactive Component 1: Real-Time Stream Simulator -->
-                <div class="widget-card telemetry-card">
-                    <div class="widget-header">
-                        <h3>Simulated Network Threat Triage Stream</h3>
-                        <span class="badge-accent">LIVE REAL-TIME INGESTION</span>
-                    </div>
-                    <div class="log-stream-container" id="logStream">
-                        <!-- JavaScript will dynamically inject real-time code execution blocks here -->
-                        <div class="stream-line initialization">[SYSTEM INITIALIZATION]: Mapping local layout structure...</div>
-                    </div>
-                </div>
-
-                <!-- Interactive Component 2: Interactive Incident Forensic Log -->
-                <div class="widget-card tool-card">
-                    <h3>Chain of Custody Event Generator</h3>
-                    <p>Interact with the localized cryptographic hash generator below to simulate immutable case forensic ingestion.</p>
-                    
-                    <div class="interactive-form-mock">
-                        <input type="text" id="evidenceInput" placeholder="Enter target asset name (e.g., system_dump.raw)...">
-                        <button onclick="generateEvidenceLog()" class="btn-action">Log Asset Integrity</button>
-                    </div>
-
-                    <div class="table-scroller">
-                        <table id="evidenceTable">
-                            <thead>
-                                <tr>
-                                    <th>Timestamp</th>
-                                    <th>Asset Source</th>
-                                    <th>SHA-256 Checksum Signature</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>19:38:02</td>
-                                    <td>mem_dump_alpha.bin</td>
-                                    <td><code class="hash-string">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Embedded High-Fidelity Logic Script -->
-    <script>
-        // Real-Time Log Stream Simulation Engine
-        const attackVectors = [
-            "Unauthorized brute-force vector intercepted on Port 443",
-            "XSS injection string sanitized within front-end layout structural wrapper",
-            "Cross-origin resource block applied to untrusted external payload",
-            "Cryptographic file verification successfully completed on node cluster",
-            "Zero-trust credential authorization routine initialized dynamically"
-        ];
-
-        const logStream = document.getElementById('logStream');
-
-        function simulateThreatLogs() {
-            setInterval(() => {
-                const randomVector = attackVectors[Math.floor(Math.random() * attackVectors.length)];
-                const timestamp = new Date().toLocaleTimeString();
-                
-                const logLine = document.createElement('div');
-                logLine.className = 'stream-line dynamic-alert';
-                logLine.innerHTML = `<span class="stream-time">[${timestamp}]</span> <span class="stream-text">${randomVector}</span>`;
-                
-                logStream.appendChild(logLine);
-                logStream.scrollTop = logStream.scrollHeight;
-
-                // Keep log stream from crashing browser memory by limiting lines
-                if (logStream.children.length > 15) {
-                    logStream.removeChild(logStream.firstChild);
-                }
-            }, 3000);
+    <title>NexusOps | Enterprise Cyber Security Command & Forensics Hub</title>
+    <style>
+        :root {
+            --bg-primary: #050811;
+            --bg-secondary: #0c111d;
+            --bg-tertiary: #161b26;
+            --accent-cyan: #00f0ff;
+            --accent-green: #39ff14;
+            --accent-amber: #ffb700;
+            --accent-error: #ff3366;
+            --text-pure: #ffffff;
+            --text-muted: #7987a5;
+            --border-glow: rgba(0, 240, 255, 0.12);
+            --font-mono: 'Courier New', Courier, monospace;
         }
 
-        // Live Cryptographic Hash Mock Generator for Chain of Custody
-        function generateEvidenceLog() {
-            const assetName = document.getElementById('evidenceInput').value.trim();
-            if (!assetName) return alert("Please specify an asset resource identifier.");
-
-            const timestamp = new Date().toLocaleTimeString();
-            // Generates a mock high-fidelity pseudo-random SHA256 string for pure visual effect
-            const characters = 'abcdef0123456789';
-            let pseudoHash = '';
-            for (let i = 0; i < 64; i++) {
-                pseudoHash += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-
-            const tableBody = document.getElementById('evidenceTable').getElementsByTagName('tbody')[0];
-            const newRow = tableBody.insertRow(0); // Insert at top of table
-
-            newRow.innerHTML = `
-                <td>${timestamp}</td>
-                <td style="color: #00f0ff; font-weight: 600;">${assetName}</td>
-                <td><code class="hash-string">${pseudoHash}</code></td>
-            `;
-
-            document.getElementById('evidenceInput').value = ''; // Reset input
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        // Initialize script logic on viewport paint
-        window.onload = simulateThreatLogs;
-    </script>
-</body>
-</html>
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-pure);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Layout Architecture */
+        .app-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Sidebar Navigation Design */
+        .sidebar {
+            width: 280px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border-glow);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            margin-bottom: 35px;
+        }
+
+        .brand-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--text-pure);
+        }
+
+        .brand-title span {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+        }
+
+        .node-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            background: rgba(57, 255, 20, 0.06);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 8px;
+            border: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        .pulse-indicator {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-pure);
+        }
+
+        .nav-btn.active-tab {
+            background: rgba(0, 240, 255, 0.05);
+            color: var(--accent-cyan);
+            border-left: 3px solid var(--accent-cyan);
+            box-shadow: inset 10px 0 20px rgba(0, 240, 255, 0.02);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+        }
+
+        /* Viewport Canvas Architecture */
+        .main-viewport {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-primary);
+            overflow: hidden;
+        }
+
+        .viewport-header {
+            padding: 30px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background-color: rgba(12, 17, 29, 0.4);
+        }
+
+        .viewport-header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .viewport-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .viewport-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        /* Hidden State Pattern for Views */
+        .view-pane {
+            display: none;
+            animation: paneRender 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .view-pane.active-pane {
+            display: block;
+        }
+
+        @keyframes paneRender {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Reusable Enterprise UI Dashboard Elements */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .metric-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .metric-card label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            color: var(--accent-cyan);
+        }
+
+        .metric-value.status-safe { color: var(--accent-green); }
+        .metric-value.status-alert { color: var(--accent-error); }
+
+        .dashboard-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .content-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .panel-header-inline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+
+        .panel-header-inline h3 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.25px;
+        }
+
+        /* Stream Terminal Log Visual Engine */
+        .terminal-viewport {
+            background-color: #04060b;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 6px;
+            height: 300px;
+            padding: 20px;
+            overflow-y: auto;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.5;
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .terminal-row {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .term-ts { color: var(--accent-cyan); min-width: 85px; }
+        .term-tag { color: var(--accent-amber); min-width: 70px; }
+        .term-msg { color: #e3e8f0; }
+        .term-row-alert { animation: alertFlash 0.3s ease-out; }
+
+        @keyframes alertFlash {
+            from { background: rgba(255, 51, 102, 0.15); }
+            to { background: transparent; }
+        }
+
+        /* Interactive Tools Elements styling */
+        .interactive-control-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .input-element-secure {
+            flex: 1;
+            background-color: #04060b;
+            border: 1px solid var(--border-glow);
+            padding: 14px 18px;
+            color: var(--text-pure);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border 0.2s ease;
+        }
+
+        .input-element-secure:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .btn-action-trigger {
+            background-color: var(--accent-cyan);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0 28px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-trigger:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 20px var(--accent-cyan);
+        }
+
+        /* Enterprise Structured Presentation Tables */
+        .table-view-scroll {
+            overflow-x: auto;
+        }
+
+        .enterprise-data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .enterprise-data-table th {
+            background-color: var(--bg-tertiary);
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.75px;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .enterprise-data-table td {
+            padding: 14px 16px;
